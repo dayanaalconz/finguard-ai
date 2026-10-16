@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "finguard-ai"
+version = "0.1.0"
+description = "Educational fraud detection and graph intelligence platform"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<10",
+  "ruff>=0.9,<1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/finguard"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
